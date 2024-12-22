@@ -1,0 +1,70 @@
+body {
+    background-color: #7E99A3 !important;
+    color: #fff;
+    font-family: monospace;
+}
+
+.navbar {
+    background-color: #4C585B;
+}
+
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+    
+.hero-content h1 {
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.hero-section p {
+    color: #4C585B;
+}
+    
+.hero-content h1 span {
+    color: #aaa;
+    font-weight: normal;
+}
+    
+.btn-custom {
+    background-color: #a8008c;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+    
+.btn-custom:hover {
+    background-color: #d62839;
+    color: white;
+}
+    
+.nav-link {
+    color: white !important;
+}
+    
+.hire-btn {
+    background-color: #A5BFCC;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+    
+.hire-btn:hover {
+    background-color: #a8008c;
+    color: white;
+}
+    
+.hero-image img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    height: 200px; /* Tetapkan tinggi tetap */
+    object-fit: cover; /* Memotong gambar agar sesuai */
+    width: 100%; /* Pastikan gambar memenuhi lebar kartu */
+}
