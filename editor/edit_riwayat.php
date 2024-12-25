@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
             <div class="mb-3">
                 <label for="tahun" class="form-label">Tahun</label>
-                <input type="number" class="form-control" id="tahun" name="tahun" value="<?= $riwayat['tahun'] ?>" required>
+                <input type="text" class="form-control" id="tahun" name="tahun" value="<?= $riwayat['tahun'] ?>" required>
             </div>
             <div class="mb-3">
                 <label for="nama_sekolah" class="form-label">Nama Sekolah/Kampus</label>

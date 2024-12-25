@@ -33,7 +33,7 @@ $result_project = $conn->query($sql_project);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Portfolio | Wanda Julianto</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -41,10 +41,10 @@ $result_project = $conn->query($sql_project);
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand text-white" href="#">2203010050 Wanda Julianto Informatika B 2022</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -54,7 +54,7 @@ $result_project = $conn->query($sql_project);
                 <li class="nav-item"><a class="nav-link" href="#project"><b>PROJECT</b></a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact"><b>CONTACT</b></a></li>
                 <li class="nav-item">
-                    <button class="btn hire-btn"><b>Hire me</b></button>
+                <a href="https://www.linkedin.com/in/wandajulian" class="btn hire-btn" target="_blank"><b>Hire Me</b></a>
                 </li>
             </ul>
             </div>
@@ -73,7 +73,7 @@ $result_project = $conn->query($sql_project);
                     <p class="my-3">
                         <?= $row['deskripsi'] ?>
                     </p>
-                    <a href="#" class="btn btn-custom">Download CV</a>
+                    <a href="editor/assets/cv/cv.pdf" class="btn btn-custom" download>Download CV</a>
                 </div>
 
                 <!-- Hero Image -->
@@ -85,36 +85,39 @@ $result_project = $conn->query($sql_project);
         </div>
     </section>
 
+    <hr class="section-divider">
+
     <!-- Education Section -->
-     <section class="hero-section" id="education">
+    <section class="card-section" id="education">
         <div class="container">
             <h2 class="text-center mb-4">Education</h2>
-            <p class="text-center mb-4">Lorem ipsum dolor sit amet et delectus accommodare his consul copiosae.</p>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Pendidikan</th>
-                        <th>Tahun</th>
-                        <th>Nama Sekolah/Kampus</th>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Pendidikan</th>
+                        <th class="text-center">Tahun</th>
+                        <th class="text-center">Nama Sekolah/Kampus</th>
                     </tr>
                 </thead>
                     <tbody>
                         <?php $no = 1; while ($riwayat = $result_riwayat->fetch_assoc()): ?>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= htmlspecialchars($riwayat['pendidikan']) ?></td>
-                            <td><?= htmlspecialchars($riwayat['tahun']) ?></td>
-                            <td><?= htmlspecialchars($riwayat['nama_sekolah']) ?></td>
+                            <td class="text-center"><?= $no++ ?></td>
+                            <td class="text-center"><?= htmlspecialchars($riwayat['pendidikan']) ?></td>
+                            <td class="text-center"><?= htmlspecialchars($riwayat['tahun']) ?></td>
+                            <td class="text-center"><?= htmlspecialchars($riwayat['nama_sekolah']) ?></td>
                         </tr>
                         <?php endwhile; ?>
                     </tbody>
             </table>
         </div>
-     </section>
+    </section>
 
-     <!-- Projects Section -->
-    <section class="hero-section" id="project">
+    <hr class="section-divider">
+
+    <!-- Projects Section -->
+    <section class="card-section" id="project">
         <div class="container">
             <h2 class="text-center mb-4">Project</h2>
             <div class="row">
@@ -124,7 +127,7 @@ $result_project = $conn->query($sql_project);
                         <img src="editor/assets/images/<?= $project['image'] ?>" class="card-img-top" alt="Project Image">
                         <div class="card-body">
                             <h5 class="card-title"><?= htmlspecialchars($project['project']) ?></h5>
-                            <p class="card-text"><?= htmlspecialchars($project['keterangan']) ?></p>
+                            <p class="card-text text-black"><?= htmlspecialchars($project['keterangan']) ?></p>
                             <a href="<?= htmlspecialchars($project['link_project']) ?>" class="btn btn-primary" target="_blank">Lihat Project</a>
                         </div>
                     </div>
@@ -136,18 +139,25 @@ $result_project = $conn->query($sql_project);
 
     <!-- Contact Section -->
     <footer class="py-4 bg-dark text-white" id="contact">
-        <div class="container text-center">
+        <div class="container text-left">
             <p>Contact</p>
             <address>
-                Address: 123 Main Street, City<br>
-                State Province, Country
+                Alamat: 
+                <?php
+                $result->data_seek(0);
+                if ($row = $result->fetch_assoc()) {
+                    echo htmlspecialchars($row['alamat']);
+                } else {
+                    echo "Alamat tidak tersedia";
+                }
+                ?>
             </address>
             <div>
-                <a href="#" class="text-white me-3"><i class="bi bi-github"></i> Github</a>
-                <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i> Facebook</a>
-                <a href="#" class="text-white"><i class="bi bi-instagram"></i> Instagram</a>
+                <a href="https://github.com/wandajulianto" class="text-white me-3" target="_blank"><i class="bi bi-github"></i> Github</a>
+                <a href="https://wa.me/085179761579" class="text-white me-3" target="_blank"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.instagram.com/wandajulian_/" class="text-white" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
             </div>
-            <p class="mt-3 mb-0">© 2024 Your Website. All rights reserved.</p>
+            <p class="mt-3 mb-0">© 2024 Wanda Julianto. All rights reserved.</p>
         </div>
     </footer>
 
