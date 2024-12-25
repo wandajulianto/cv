@@ -44,7 +44,7 @@ $result_project = $conn->query($sql_project);
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand text-white" href="#">2203010050 Wanda Julianto Informatika B 2022</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bstarget="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
